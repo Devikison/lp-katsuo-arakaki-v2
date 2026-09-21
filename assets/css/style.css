@@ -78,15 +78,16 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 .hero h1 {
   font-family: var(--font-title); font-weight: 800; font-size: clamp(28px, 4.6vw, 44px);
-  line-height: 1.18; letter-spacing: -.01em; max-width: 16ch;
+  line-height: 1.18; letter-spacing: -.01em; max-width: 16ch; order: 0;
 }
 .hero h1 .accent { color: var(--blue-soft); }
 .hero__row { display: flex; flex-direction: column; }
+.hero__col { display: contents; }
 .hero__photo {
-  order: -1; margin-bottom: 24px; border-radius: var(--radius); overflow: hidden; max-width: 420px;
+  order: 1; margin-block: 24px; border-radius: var(--radius); overflow: hidden; max-width: 420px;
 }
-.hero__sub { margin-top: 24px; font-size: 17px; max-width: 62ch; color: #D8E3F5; }
-.hero .cta { margin-top: 26px; }
+.hero__sub { order: 2; margin-top: 0; font-size: 17px; max-width: 62ch; color: #D8E3F5; }
+.hero .cta { order: 3; margin-top: 26px; }
 .hero .cta__line { color: var(--white); }
 .hero .cta__note { margin-top: 12px; font-size: 14px; color: #9FB4D6; max-width: 52ch; }
 
@@ -248,10 +249,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* ---------- Responsivo ---------- */
 @media (min-width: 760px) {
   .hero__row { flex-direction: row; gap: 40px; align-items: flex-start; }
-  .hero__col { flex: 1; min-width: 0; }
-  .hero__photo { order: 0; margin-bottom: 0; max-width: 300px; flex: none; }
+  .hero__col { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+  .hero__photo { order: 0; margin-block: 0; max-width: 300px; flex: none; }
   .hero h1 { max-width: none; font-size: clamp(32px, 2.7vw, 44px); }
-  .hero__sub { max-width: 50ch; }
+  .hero__sub { margin-top: 24px; max-width: 50ch; }
   .who { grid-template-columns: minmax(240px, 320px) 1fr; }
 }
 
