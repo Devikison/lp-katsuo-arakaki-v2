@@ -22,7 +22,7 @@
   --font-title: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --font-body:  "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  --container: 900px;
+  --container: 1240px;
   --read:      680px;
   --radius:    10px;
 }
@@ -47,7 +47,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .section .accent, .prose .accent { color: var(--blue-ink); }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: 20px; }
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: clamp(20px, 4vw, 64px); }
 .container--read { max-width: var(--read); }
 
 /* ---------- Botão ---------- */
@@ -248,7 +248,13 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* ---------- Responsivo ---------- */
 @media (min-width: 760px) {
   .hero__row { flex-direction: row; gap: 40px; align-items: flex-start; }
-  .hero__col { flex: 1; }
-  .hero__photo { order: 0; margin-bottom: 0; max-width: 320px; flex: none; }
+  .hero__col { flex: 1; min-width: 0; }
+  .hero__photo { order: 0; margin-bottom: 0; max-width: 300px; flex: none; }
+  .hero h1 { max-width: none; font-size: clamp(32px, 2.7vw, 44px); }
+  .hero__sub { max-width: 50ch; }
   .who { grid-template-columns: minmax(240px, 320px) 1fr; }
+}
+
+@media (min-width: 1180px) {
+  .hero__photo { max-width: 340px; }
 }
