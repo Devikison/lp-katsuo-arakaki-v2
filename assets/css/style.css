@@ -68,6 +68,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   padding: 18px 0; color: var(--white); font-family: var(--font-title);
 }
 .topbar strong { font-weight: 700; letter-spacing: .04em; }
+.topbar__logo { height: 44px; width: auto; }
 
 /* ---------- Hero ---------- */
 .hero { background: var(--navy); color: var(--white); padding-bottom: 56px; }
