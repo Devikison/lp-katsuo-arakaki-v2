@@ -153,7 +153,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* Bio + depoimentos */
 .who { margin-top: 30px; display: grid; gap: 32px; }
-.portrait { display: block; border-radius: var(--radius); overflow: hidden; max-width: 320px; }
+.portrait { display: block; border-radius: var(--radius); overflow: hidden; max-width: 320px; margin-inline: auto; }
 .portrait img { display: block; width: 100%; height: auto; }
 .bio { margin-top: 18px; display: grid; gap: 12px; font-size: 16px; max-width: var(--read); }
 .bio h3 { font-family: var(--font-title); font-weight: 800; font-size: 20px; color: var(--ink); }
