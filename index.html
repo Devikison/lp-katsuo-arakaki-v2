@@ -56,13 +56,13 @@
         </div>
       </div>
 
-      <div class="hero__photo" data-video="vsl">
-        <button type="button" class="video" data-video-target="vsl" aria-label="Assistir ao vídeo de apresentação">
+      <div class="hero__photo hero__photo--vsl" data-video="vsl">
+        <button type="button" class="video video--wide" data-video-target="vsl" aria-label="Assistir ao vídeo de apresentação">
           <picture>
-            <source type="image/webp" srcset="assets/img/katsuo-terno-900.webp">
-            <img src="assets/img/katsuo-terno-900.jpg" alt="Katsuo Arakaki, terapeuta" width="900" height="1348" fetchpriority="high">
+            <source type="image/webp" srcset="assets/img/vsl-capa.webp">
+            <img src="assets/img/vsl-capa.jpg" alt="Katsuo Arakaki no consultório, capa do vídeo de apresentação" width="1280" height="720" fetchpriority="high">
           </picture>
-          <span class="video__play" aria-hidden="true"><span class="video__btn"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5L8 5.5Z"/></svg></span></span>
+          <span class="video__play" aria-hidden="true"><span class="video__btn"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5L8 5.5Z"/></svg></span><span class="video__label">Assista ao vídeo</span></span>
         </button>
       </div>
     </div>
@@ -220,13 +220,66 @@
           <span class="video__play" aria-hidden="true"><span class="video__btn"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5L8 5.5Z"/></svg></span></span>
         </button>
 
-        <ul class="quote-list">
-          <li class="quote-item">“Eu já tinha feito terapia durante uns quatro anos. Tinha tratado muita coisa, mas não sabia dizer por que ainda não tinha resolvido.”<cite>Cliente atendida</cite></li>
-          <li class="quote-item">“Foi como se fosse um amigo mesmo do nosso lado. Não fica com muita lenga-lenga, já vai direto pro ponto.”<cite>Cliente atendido</cite></li>
-          <li class="quote-item">“A paz que você sente quando entra aqui já começa por aí, desde o primeiro dia.”<cite>Cliente atendida</cite></li>
-          <li class="quote-item">“Eu tenho uma pasta de terapeutas que eu fiquei selecionando. Vi você e falei: tem que ser com esse cara.”<cite>Cliente atendida</cite></li>
-          <li class="quote-item">“Eu saí daqui grandona. Falei: gente, como pode? Eu quero mais, pode marcar a próxima.”<cite>Cliente atendida</cite></li>
-        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     06B · DEPOIMENTOS (carrossel, igual à versão A)
+     ============================================================ -->
+<section class="section section--tint" id="depoimentos">
+  <div class="container">
+    <p class="eyebrow">Depoimentos</p>
+    <h2>O que dizem <span class="accent">as pessoas que já passaram por aqui</span></h2>
+
+    <div class="carousel" data-carousel aria-roledescription="carrossel" aria-label="Depoimentos de clientes">
+      <ul class="quotes" data-track>
+        <li class="quote">
+          <div class="quote__top">
+            <span class="quote__mark" aria-hidden="true">“</span>
+            <span class="stars" role="img" aria-label="Avaliação: 5 de 5 estrelas"><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg></span>
+          </div>
+          <blockquote>Eu já tinha feito terapia durante uns quatro anos. Tinha tratado muita coisa, mas não sabia dizer por que ainda não tinha resolvido.</blockquote>
+          <cite>Cliente atendida</cite>
+        </li>
+        <li class="quote">
+          <div class="quote__top">
+            <span class="quote__mark" aria-hidden="true">“</span>
+            <span class="stars" role="img" aria-label="Avaliação: 5 de 5 estrelas"><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg></span>
+          </div>
+          <blockquote>Foi como se fosse um amigo mesmo do nosso lado. Não fica com muita lenga-lenga, já vai direto pro ponto.</blockquote>
+          <cite>Cliente atendido</cite>
+        </li>
+        <li class="quote">
+          <div class="quote__top">
+            <span class="quote__mark" aria-hidden="true">“</span>
+            <span class="stars" role="img" aria-label="Avaliação: 5 de 5 estrelas"><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg></span>
+          </div>
+          <blockquote>A paz que você sente quando entra aqui já começa por aí, desde o primeiro dia.</blockquote>
+          <cite>Cliente atendida</cite>
+        </li>
+        <li class="quote">
+          <div class="quote__top">
+            <span class="quote__mark" aria-hidden="true">“</span>
+            <span class="stars" role="img" aria-label="Avaliação: 5 de 5 estrelas"><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg></span>
+          </div>
+          <blockquote>Eu tenho uma pasta de terapeutas que eu fiquei selecionando. Vi você e falei: tem que ser com esse cara.</blockquote>
+          <cite>Cliente atendida</cite>
+        </li>
+        <li class="quote">
+          <div class="quote__top">
+            <span class="quote__mark" aria-hidden="true">“</span>
+            <span class="stars" role="img" aria-label="Avaliação: 5 de 5 estrelas"><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z"/></svg></span>
+          </div>
+          <blockquote>Eu saí daqui grandona. Falei: gente, como pode? Eu quero mais, pode marcar a próxima.</blockquote>
+          <cite>Cliente atendida</cite>
+        </li>
+      </ul>
+      <div class="carousel__nav">
+        <button type="button" class="carousel__btn" data-prev aria-label="Depoimento anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="carousel__dots" data-dots aria-hidden="true"></div>
+        <button type="button" class="carousel__btn" data-next aria-label="Próximo depoimento"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
     </div>
   </div>

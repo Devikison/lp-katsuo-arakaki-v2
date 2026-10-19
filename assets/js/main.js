@@ -33,6 +33,23 @@
       return;
     }
     btn.addEventListener("click", function () {
+      /* arquivo de vídeo próprio (.mp4): player nativo, só baixa ao clicar */
+      if (/\.mp4(\?|$)/i.test(url)) {
+        var img = btn.querySelector("img");
+        var vid = document.createElement("video");
+        vid.src = url;
+        vid.controls = true;
+        vid.autoplay = true;
+        vid.playsInline = true;
+        vid.preload = "auto";
+        if (img) vid.poster = img.currentSrc || img.src;
+        vid.className = "video__player";
+        vid.setAttribute("aria-label", btn.getAttribute("aria-label") || "Vídeo");
+        btn.replaceWith(vid);
+        var p = vid.play();
+        if (p && p.catch) p.catch(function () {});
+        return;
+      }
       var src = embedUrl(url);
       var sep = src.indexOf("?") === -1 ? "?" : "&";
       var frame = document.createElement("iframe");
@@ -43,6 +60,77 @@
       frame.className = "video__frame";
       btn.replaceWith(frame);
     });
+  });
+
+  /* ---------- Carrossel de depoimentos (mesmo da versão A) ---------- */
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll("[data-carousel]").forEach(function (root) {
+    var track = root.querySelector("[data-track]");
+    var prev = root.querySelector("[data-prev]");
+    var next = root.querySelector("[data-next]");
+    var dotsBox = root.querySelector("[data-dots]");
+    var slides = Array.prototype.slice.call(track.children);
+    if (!slides.length) return;
+
+    var dots = slides.map(function (_, i) {
+      var b = document.createElement("button");
+      b.type = "button"; b.setAttribute("aria-label", "Ir para o depoimento " + (i + 1));
+      b.addEventListener("click", function () { go(i); });
+      dotsBox.appendChild(b);
+      return b;
+    });
+
+    function gap() { var g = parseFloat(getComputedStyle(track).columnGap); return isNaN(g) ? 16 : g; }
+    function step() { return slides[0].getBoundingClientRect().width + gap(); }
+    function index() { return Math.round(track.scrollLeft / step()); }
+    function maxIndex() { return Math.max(0, Math.round((track.scrollWidth - track.clientWidth) / step())); }
+    function go(i) {
+      i = Math.max(0, Math.min(i, maxIndex()));
+      track.scrollTo({ left: i * step(), behavior: reduceMotion ? "auto" : "smooth" });
+    }
+    function paint() {
+      var i = index(), m = maxIndex();
+      dots.forEach(function (d, k) {
+        d.hidden = k > m;
+        d.classList.toggle("is-on", k === Math.min(i, m));
+      });
+      prev.disabled = i <= 0; next.disabled = i >= m;
+    }
+    prev.addEventListener("click", function () { go(index() - 1); });
+    next.addEventListener("click", function () { go(index() + 1); });
+    track.addEventListener("scroll", function () { window.requestAnimationFrame(paint); }, { passive: true });
+    window.addEventListener("resize", paint);
+    paint();
+
+    /* arrastar com o mouse no desktop */
+    var down = false, startX = 0, startL = 0, moved = false;
+    track.addEventListener("pointerdown", function (e) {
+      if (e.pointerType !== "mouse") return;
+      down = true; moved = false; startX = e.clientX; startL = track.scrollLeft;
+      track.classList.add("is-dragging"); track.setPointerCapture(e.pointerId);
+    });
+    track.addEventListener("pointermove", function (e) {
+      if (!down) return;
+      var dx = e.clientX - startX; if (Math.abs(dx) > 4) moved = true;
+      track.scrollLeft = startL - dx;
+    });
+    function up() {
+      if (!down) return; down = false; track.classList.remove("is-dragging");
+      go(index());
+    }
+    track.addEventListener("pointerup", up); track.addEventListener("pointercancel", up); track.addEventListener("mouseleave", up);
+    track.addEventListener("click", function (e) { if (moved) { e.preventDefault(); moved = false; } }, true);
+
+    /* passa sozinho, devagar; para enquanto a pessoa interage */
+    var hold = false;
+    if (!reduceMotion) {
+      setInterval(function () {
+        if (hold || document.hidden) return;
+        var i = index(); go(i >= maxIndex() ? 0 : i + 1);
+      }, 5200);
+    }
+    ["pointerenter", "focusin", "touchstart"].forEach(function (ev) { root.addEventListener(ev, function () { hold = true; }, { passive: true }); });
+    ["pointerleave", "focusout", "touchend"].forEach(function (ev) { root.addEventListener(ev, function () { hold = false; }, { passive: true }); });
   });
 
   /* ---------- FAQ: acordeão com abertura/fechamento suave ---------- */

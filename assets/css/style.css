@@ -86,6 +86,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .hero__photo {
   order: 1; margin-block: 24px; border-radius: var(--radius); overflow: hidden; max-width: 420px;
 }
+.hero__photo--vsl { max-width: 640px; width: 100%; box-shadow: 0 18px 44px rgba(0,0,0,.35); }
 .hero__sub { order: 2; margin-top: 0; font-size: 17px; max-width: 62ch; color: #D8E3F5; }
 .hero .cta { order: 3; margin-top: 26px; }
 .hero .cta__line { color: var(--white); }
@@ -164,6 +165,61 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .quote-item:first-child { padding-top: 0; border-top: 0; }
 .quote-item cite { display: block; margin-top: 8px; font-size: 13px; color: var(--body); font-style: normal; }
 
+/* ---------- Depoimentos: carrossel (mesmo da versão A) ---------- */
+.section--tint { background: var(--tint); }
+.carousel { position: relative; margin-top: 28px; min-width: 0; }
+.quotes {
+  display: flex; gap: 16px; overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
+  padding: 6px 2px 14px; margin: -6px -2px 0; list-style: none;
+  scrollbar-width: none; cursor: grab;
+}
+.quotes::-webkit-scrollbar { display: none; }
+.quotes.is-dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }
+.quote {
+  position: relative; flex: 0 0 calc((100% - 32px) / 3); scroll-snap-align: start;
+  display: flex; flex-direction: column; gap: 12px;
+  padding: 24px 26px 22px 28px; border-radius: 16px;
+  background: #fff; border: 1px solid rgba(202, 214, 227, .85);
+  box-shadow: 0 6px 22px rgba(5, 23, 67, .05);
+  transition: box-shadow .3s ease, border-color .3s ease;
+}
+.quote::before {
+  content: ""; position: absolute; left: 0; top: 20px; bottom: 20px; width: 3px; border-radius: 0 3px 3px 0;
+  background: linear-gradient(180deg, var(--blue-soft), var(--blue));
+}
+.quote:hover { box-shadow: 0 14px 34px rgba(5, 23, 67, .10); border-color: var(--blue-soft); }
+.quote__top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.quote__mark {
+  display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 10px;
+  background: var(--tint); font-family: var(--font-title); font-weight: 700; font-size: 30px; line-height: 1; padding-top: 10px; color: var(--blue-ink);
+}
+.stars { display: inline-flex; gap: 3px; }
+.stars svg { width: 16px; height: 16px; fill: #E9B949; filter: drop-shadow(0 1px 0 rgba(160, 110, 20, .18)); }
+.quote blockquote { flex: 1; margin: 0; font-size: 15.5px; line-height: 1.68; color: var(--body); text-wrap: pretty; }
+.quote cite {
+  display: flex; align-items: center; gap: 10px; margin-top: 2px;
+  font-style: normal; font-size: 12px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #55647C;
+}
+.quote cite::before { content: ""; width: 18px; height: 1px; background: var(--blue-soft); }
+.carousel__nav { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 10px; }
+.carousel__btn {
+  width: 44px; height: 44px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(135, 170, 226, .6); background: #fff; color: var(--navy);
+  transition: background .25s ease, border-color .25s ease, transform .25s ease;
+}
+.carousel__btn svg { width: 18px; height: 18px; }
+.carousel__btn:hover { background: var(--tint); border-color: var(--blue); transform: translateY(-1px); }
+.carousel__btn:disabled { opacity: .35; cursor: default; transform: none; }
+.carousel__dots { display: flex; gap: 8px; }
+.carousel__dots button {
+  width: 8px; height: 8px; border-radius: 50%; background: rgba(135, 170, 226, .45);
+  transition: width .3s ease, background .3s ease;
+}
+.carousel__dots button.is-on { width: 24px; border-radius: 999px; background: var(--blue); }
+@media (max-width: 1023px) { .quote { flex-basis: calc(50% - 8px); } }
+@media (max-width: 640px)  { .quote { flex-basis: 88%; padding: 22px 18px 20px 22px; } }
+
 /* ---------- FAQ: bloco azul, cards brancos, acordeão suave ---------- */
 .faq-wrap {
   padding-block: 64px;
@@ -226,6 +282,13 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .video__btn svg { width: 24px; height: 24px; fill: var(--navy); }
 .video__frame { width: 100%; aspect-ratio: 16/9; border: 0; border-radius: var(--radius); }
 .video--pending { cursor: default; }
+.video--wide img { aspect-ratio: 16/9; object-fit: cover; }
+.video--wide .video__play { flex-direction: column; gap: 12px; background: linear-gradient(180deg, rgba(5,23,67,.12), rgba(5,23,67,.48)); }
+.video--wide .video__btn { width: 74px; height: 74px; background: var(--wa); box-shadow: 0 0 0 10px rgba(37,211,102,.22), 0 12px 28px rgba(5,23,67,.4); transition: transform .2s ease; }
+.video--wide .video__btn svg { fill: #06210F; width: 28px; height: 28px; margin-left: 3px; }
+.video--wide:hover .video__btn { transform: scale(1.06); }
+.video__label { color: var(--white); font-family: var(--font-title); font-weight: 700; font-size: 15px; letter-spacing: .04em; text-transform: uppercase; text-shadow: 0 2px 10px rgba(0,0,0,.45); }
+.video__player { display: block; width: 100%; aspect-ratio: 16/9; background: #000; border-radius: var(--radius); }
 
 /* ---------- Rodapé ---------- */
 .footer { background: var(--navy); color: #B9C8E6; padding-block: 36px; }
@@ -251,6 +314,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .hero__row { flex-direction: row; gap: 40px; align-items: flex-start; }
   .hero__col { display: flex; flex-direction: column; flex: 1; min-width: 0; }
   .hero__photo { order: 0; margin-block: 0; max-width: 300px; flex: none; }
+  .hero__photo--vsl { flex: 0 0 48%; max-width: 600px; margin-top: 6px; }
   .hero h1 { max-width: none; font-size: clamp(32px, 2.7vw, 44px); }
   .hero__sub { margin-top: 24px; max-width: 50ch; }
   .who { grid-template-columns: minmax(240px, 320px) 1fr; }
@@ -258,4 +322,5 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 @media (min-width: 1180px) {
   .hero__photo { max-width: 340px; }
+  .hero__photo--vsl { max-width: 600px; }
 }

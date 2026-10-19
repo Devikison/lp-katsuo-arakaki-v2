@@ -20,7 +20,8 @@ diferentes a partir do mesmo repo.
 index.html              página completa (mesma copy da Versão A, layout enxuto)
 assets/css/style.css    design system simplificado (sem o design system completo da V1)
 assets/js/config.js     >>> único arquivo que precisa ser editado <<<
-assets/js/main.js       WhatsApp, vídeos, acordeão do FAQ, cookies
+assets/js/main.js       WhatsApp, vídeos, carrossel, acordeão do FAQ, cookies
+assets/video/           VSL hospedada no próprio site (720p, ~58 MB, baixa só ao clicar)
 CNAME                   domínio do GitHub Pages: katsuoarakakiv2.sitepreviavisual.site
 ```
 
@@ -33,7 +34,7 @@ diferentes sem querer.
 
 ## O que é diferente da Versão A
 
-- Sem carrossel de depoimentos (lista simples, rolagem nativa da página).
+- Depoimentos em seção própria (`#depoimentos`), com o mesmo carrossel da Versão A.
 - Sem tabela de comparação em cartão com sombra — é uma tabela HTML simples.
 - Sem efeito de "revelar ao rolar" nem rolagem suave customizada — 100% nativo.
 - Seção de perguntas frequentes com fundo azul e cards brancos (acordeão com
