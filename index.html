@@ -199,27 +199,15 @@
     <p class="eyebrow">Quem conduz, e quem já passou por isso</p>
 
     <div class="who">
-      <div>
-        <picture class="portrait">
-          <source type="image/webp" srcset="assets/img/katsuo-retrato-900.webp">
-          <img src="assets/img/katsuo-retrato-900.jpg" alt="Katsuo Arakaki no consultório" width="900" height="1348" loading="lazy" decoding="async">
-        </picture>
-
-        <div class="bio">
-          <h3>Eu me chamo Katsuo Arakaki</h3>
-          <p>Eu me chamo Katsuo Arakaki e sou terapeuta há sete anos, atendendo em consultório todos os dias.</p>
-          <p>Trabalho com Terapia de Reintegração Implícita, uma abordagem de terapia breve construída sobre princípios das neurociências, e sou um dos terapeutas que o criador do método convidou para formar outros terapeutas. Já acompanhei mais de mil pessoas nesse processo.</p>
-          <p>Não tenho uma parede cheia de certificados e nunca precisei disso. O que eu faço é sentar na frente de uma pessoa e enxergar o que ela não está conseguindo enxergar sozinha.</p>
-        </div>
-      </div>
-
-      <div>
-        <p class="eyebrow">Depoimento em vídeo</p>
-        <button type="button" class="video video--depo" data-video-target="depo" aria-label="Assistir ao depoimento em vídeo" style="background:var(--navy); aspect-ratio:16/10; display:flex; align-items:center; justify-content:center;">
-          <span style="color:#fff; font-family:var(--font-title); font-weight:700; padding:20px; text-align:center;">“17 dias sem nenhum sintoma após a primeira sessão”</span>
-          <span class="video__play" aria-hidden="true"><span class="video__btn"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5L8 5.5Z"/></svg></span></span>
-        </button>
-
+      <picture class="portrait">
+        <source type="image/webp" srcset="assets/img/katsuo-retrato-900.webp">
+        <img src="assets/img/katsuo-retrato-900.jpg" alt="Katsuo Arakaki no consultório" width="900" height="1348" loading="lazy" decoding="async">
+      </picture>
+      <div class="bio">
+        <h3>Eu me chamo Katsuo Arakaki</h3>
+        <p>Eu me chamo Katsuo Arakaki e sou terapeuta há sete anos, atendendo em consultório todos os dias.</p>
+        <p>Trabalho com Terapia de Reintegração Implícita, uma abordagem de terapia breve construída sobre princípios das neurociências, e sou um dos terapeutas que o criador do método convidou para formar outros terapeutas. Já acompanhei mais de mil pessoas nesse processo.</p>
+        <p>Não tenho uma parede cheia de certificados e nunca precisei disso. O que eu faço é sentar na frente de uma pessoa e enxergar o que ela não está conseguindo enxergar sozinha.</p>
       </div>
     </div>
   </div>
@@ -230,8 +218,69 @@
      ============================================================ -->
 <section class="section section--tint" id="depoimentos">
   <div class="container">
-    <p class="eyebrow">Depoimentos</p>
-    <h2>O que dizem <span class="accent">as pessoas que já passaram por aqui</span></h2>
+    <p class="eyebrow">Depoimentos em vídeo</p>
+    <h2>Histórias de quem voltou a viver <span class="accent">sem estar preso aos mesmos padrões</span></h2>
+
+    <div class="carousel carousel--videos" data-carousel data-autoplay="off" aria-roledescription="carrossel" aria-label="Depoimentos em vídeo">
+      <ul class="vcards" data-track>
+        <li class="vcard">
+          <button type="button" class="vcard__frame" data-yt="StEYcUvTbEc" aria-label="Ver depoimento de Luiz Otávio">
+            <img src="https://i.ytimg.com/vi/StEYcUvTbEc/hqdefault.jpg" alt="Depoimento de Luiz Otávio" width="480" height="360" loading="lazy" decoding="async">
+            <span class="vcard__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5L8 5.5Z"/></svg></span>
+          </button>
+          <p class="vcard__name">Luiz Otávio</p>
+        </li>
+        <li class="vcard">
+          <button type="button" class="vcard__frame" data-yt="W8yWHz-haBE" aria-label="Ver depoimento de Maria">
+            <img src="https://i.ytimg.com/vi/W8yWHz-haBE/hqdefault.jpg" alt="Depoimento de Maria" width="480" height="360" loading="lazy" decoding="async">
+            <span class="vcard__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5L8 5.5Z"/></svg></span>
+          </button>
+          <p class="vcard__name">Maria</p>
+        </li>
+        <li class="vcard">
+          <button type="button" class="vcard__frame" data-yt="TQvmSrMPhnI" aria-label="Ver depoimento de Rigelia">
+            <img src="https://i.ytimg.com/vi/TQvmSrMPhnI/hqdefault.jpg" alt="Depoimento de Rigelia" width="480" height="360" loading="lazy" decoding="async">
+            <span class="vcard__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5L8 5.5Z"/></svg></span>
+          </button>
+          <p class="vcard__name">Rigelia</p>
+        </li>
+        <li class="vcard">
+          <button type="button" class="vcard__frame" data-yt="4cfiPvOyCdU" aria-label="Ver depoimento de Silvia">
+            <img src="https://i.ytimg.com/vi/4cfiPvOyCdU/hqdefault.jpg" alt="Depoimento de Silvia" width="480" height="360" loading="lazy" decoding="async">
+            <span class="vcard__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5L8 5.5Z"/></svg></span>
+          </button>
+          <p class="vcard__name">Silvia</p>
+        </li>
+        <li class="vcard">
+          <button type="button" class="vcard__frame" data-yt="KZbH4onshvg" aria-label="Ver depoimento de Aviao">
+            <img src="https://i.ytimg.com/vi/KZbH4onshvg/hqdefault.jpg" alt="Depoimento de Aviao" width="480" height="360" loading="lazy" decoding="async">
+            <span class="vcard__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5L8 5.5Z"/></svg></span>
+          </button>
+          <p class="vcard__name">Aviao</p>
+        </li>
+        <li class="vcard">
+          <button type="button" class="vcard__frame" data-yt="sNni5rulVOw" aria-label="Ver depoimento de Debora">
+            <img src="https://i.ytimg.com/vi/sNni5rulVOw/hqdefault.jpg" alt="Depoimento de Debora" width="480" height="360" loading="lazy" decoding="async">
+            <span class="vcard__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5L8 5.5Z"/></svg></span>
+          </button>
+          <p class="vcard__name">Debora</p>
+        </li>
+        <li class="vcard">
+          <button type="button" class="vcard__frame" data-yt="TEpVgqNNM9s" aria-label="Ver depoimento de Alef">
+            <img src="https://i.ytimg.com/vi/TEpVgqNNM9s/hqdefault.jpg" alt="Depoimento de Alef" width="480" height="360" loading="lazy" decoding="async">
+            <span class="vcard__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5L8 5.5Z"/></svg></span>
+          </button>
+          <p class="vcard__name">Alef</p>
+        </li>
+      </ul>
+      <div class="carousel__nav">
+        <button type="button" class="carousel__btn" data-prev aria-label="Vídeo anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="carousel__dots" data-dots aria-hidden="true"></div>
+        <button type="button" class="carousel__btn" data-next aria-label="Próximo vídeo"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+    </div>
+
+    <p class="eyebrow eyebrow--sub">O que dizem as pessoas que já passaram por aqui</p>
 
     <div class="carousel" data-carousel aria-roledescription="carrossel" aria-label="Depoimentos de clientes">
       <ul class="quotes" data-track>

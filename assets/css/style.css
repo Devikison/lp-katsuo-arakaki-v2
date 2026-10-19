@@ -220,6 +220,36 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @media (max-width: 1023px) { .quote { flex-basis: calc(50% - 8px); } }
 @media (max-width: 640px)  { .quote { flex-basis: 88%; padding: 22px 18px 20px 22px; } }
 
+/* Depoimentos em vídeo (YouTube, vertical) */
+.vcards {
+  display: flex; gap: 16px; overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
+  padding: 6px 2px 14px; margin: -6px -2px 0; list-style: none; scrollbar-width: none; cursor: grab;
+}
+.vcards::-webkit-scrollbar { display: none; }
+.vcards.is-dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }
+.vcard { flex: 0 0 calc((100% - 48px) / 4); scroll-snap-align: start; }
+.vcard__frame, .vcard__player {
+  position: relative; display: block; width: 100%; aspect-ratio: 9/16; border-radius: 16px; overflow: hidden;
+  background: var(--navy); border: 0;
+}
+.vcard__frame { box-shadow: 0 10px 26px rgba(5, 23, 67, .14); }
+.vcard__frame img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.02); transition: transform .4s ease; }
+.vcard__frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,23,67,0) 55%, rgba(5,23,67,.45)); }
+.vcard__frame:hover img { transform: scale(1.06); }
+.vcard__play {
+  position: absolute; z-index: 1; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 58px; height: 58px; border-radius: 999px; background: rgba(255,255,255,.95);
+  display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 24px rgba(5,23,67,.35);
+  transition: transform .2s ease;
+}
+.vcard__play svg { width: 22px; height: 22px; fill: var(--navy); margin-left: 3px; }
+.vcard__frame:hover .vcard__play { transform: translate(-50%, -50%) scale(1.08); }
+.vcard__name { margin-top: 10px; text-align: center; font-family: var(--font-title); font-weight: 700; font-size: 15px; color: var(--ink); }
+.eyebrow--sub { margin-top: 48px; }
+@media (max-width: 1023px) { .vcard { flex-basis: calc((100% - 32px) / 3); } }
+@media (max-width: 640px)  { .vcard { flex-basis: 62%; } }
+
 /* ---------- FAQ: bloco azul, cards brancos, acordeão suave ---------- */
 .faq-wrap {
   padding-block: 64px;
@@ -317,7 +347,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .hero__photo--vsl { flex: 0 0 48%; max-width: 600px; margin-top: 6px; }
   .hero h1 { max-width: none; font-size: clamp(32px, 2.7vw, 44px); }
   .hero__sub { margin-top: 24px; max-width: 50ch; }
-  .who { grid-template-columns: minmax(240px, 320px) 1fr; }
+  .who { grid-template-columns: minmax(240px, 320px) 1fr; align-items: center; gap: 48px; }
+  .who .bio { margin-top: 0; }
 }
 
 @media (min-width: 1180px) {

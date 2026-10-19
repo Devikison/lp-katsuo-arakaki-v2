@@ -62,6 +62,20 @@
     });
   });
 
+  /* ---------- Depoimentos em vídeo: YouTube só carrega ao clicar ---------- */
+  document.querySelectorAll("[data-yt]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var id = btn.getAttribute("data-yt");
+      var frame = document.createElement("iframe");
+      frame.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0&playsinline=1";
+      frame.title = btn.getAttribute("aria-label") || "Depoimento em vídeo";
+      frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture";
+      frame.setAttribute("allowfullscreen", "");
+      frame.className = "vcard__player";
+      btn.replaceWith(frame);
+    });
+  });
+
   /* ---------- Carrossel de depoimentos (mesmo da versão A) ---------- */
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   document.querySelectorAll("[data-carousel]").forEach(function (root) {
@@ -119,11 +133,11 @@
       go(index());
     }
     track.addEventListener("pointerup", up); track.addEventListener("pointercancel", up); track.addEventListener("mouseleave", up);
-    track.addEventListener("click", function (e) { if (moved) { e.preventDefault(); moved = false; } }, true);
+    track.addEventListener("click", function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
 
     /* passa sozinho, devagar; para enquanto a pessoa interage */
     var hold = false;
-    if (!reduceMotion) {
+    if (!reduceMotion && root.getAttribute("data-autoplay") !== "off") {
       setInterval(function () {
         if (hold || document.hidden) return;
         var i = index(); go(i >= maxIndex() ? 0 : i + 1);

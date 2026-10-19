@@ -34,7 +34,7 @@ diferentes sem querer.
 
 ## O que é diferente da Versão A
 
-- Depoimentos em seção própria (`#depoimentos`), com o mesmo carrossel da Versão A.
+- Depoimentos em seção própria (`#depoimentos`): 7 vídeos do YouTube (mesmos do katsuoarakaki.com.br, carregam só ao clicar) + o carrossel de textos da Versão A.
 - Sem tabela de comparação em cartão com sombra — é uma tabela HTML simples.
 - Sem efeito de "revelar ao rolar" nem rolagem suave customizada — 100% nativo.
 - Seção de perguntas frequentes com fundo azul e cards brancos (acordeão com
